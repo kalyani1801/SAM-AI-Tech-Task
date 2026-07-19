@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI PDF Question Answering</title>
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📄 AI PDF Question Answering</h1>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+<input type="file" name="pdf" required>
+
+<button>Upload PDF</button>
+
+</form>
+
+<form action="/ask" method="POST">
+
+<input
+type="text"
+name="question"
+placeholder="Ask any question..."
+required>
+
+<button>Ask</button>
+
+</form>
+
+{% if message %}
+<div class="msg">{{message}}</div>
+{% endif %}
+
+{% if answer %}
+<div class="answer">
+
+<h2>Answer</h2>
+
+<p>{{answer}}</p>
+
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
